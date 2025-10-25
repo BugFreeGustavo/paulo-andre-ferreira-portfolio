@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Paulo André Ferreira</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="/js/index.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/homeView.css">
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navUl = document.querySelector('.main-nav ul');
+
+        menuToggle.addEventListener('click', () => {
+            navUl.classList.toggle('show');
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="/home" class="logo-link">
+                <img src="media/logo.png" alt="Paulo André Ferreira Logo">
+            </a>
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/cinema">Cinema</a></li>
+                <li><a href="/series">Series</a></li>
+                <li><a href="/videoclips">Videoclips</a></li>
+                <li><a href="/sobre-mim">Sobre Mim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="app">
+
+    </div>
+</body>
+
+</html>
