@@ -178,4 +178,11 @@ body {
         margin: 5px 0;
         transition: all 0.3s ease;
     }
+
+    header button.active {
+  border-bottom: 2px solid white;
+  color: white;
+  transition: 0.3s;
+}
+
 }

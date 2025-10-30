@@ -2,36 +2,65 @@ export default class HomeView {
     constructor(root) {
         this.root = root;
         this.projects = [
-            { title: "As Feras teaser", videoId: "655923441", category: "Cinema" },
-            { title: "SEMPRE ( PRIME/RTP ) - Genérico", videoId: "1130499088", category: "Cinema" },
-            { title: "A Generala ( OPTO/SIC ) - Genérico", videoId: "653217840", category: "Cinema" },
-            { title: "NENA - OS CROQUETES ACABAM", videoId: "842794804", category: "Music Video" },
-            { title: "CUCA ROSETA - AMOR PERFEITO", videoId: "842792186", category: "Music Video" },
-            { title: "NAPA - Se eu morresse amanhã", videoId: "367282104", category: "Music Video" },
-            { title: "Mónica Teotonio - Todos os dias", videoId: "813500585", category: "Music Video" },
-            { title: "Barbante - Patamar", videoId: "307477937", category: "Music Video" },
-            { title: "Barbante - Adeus", videoId: "261619368", category: "Music Video" },
-            { title: "BARBANTE - CÃO ( TELEDISCO )", videoId: "187679760", category: "Music Video" },
-            { title: "Coco Pilots - Novo Dia", videoId: "413077420", category: "Music Video" },
-            { title: "Martim Baginha - Serra dos Amores", videoId: "CQeohNN_Vj4", category: "Videoclip", isYouTube: true },
-            { title: "PJ 7 – Anonymous", rtpURL: "https://www.rtp.pt/play/p11413/pj-7", category: "Cinema", isRTP: true },
-            { title: "Tens Cá Disto?", rtpURL: "https://www.rtp.pt/play/p991/tens-ca-disto", category: "Documentary", isRTP: true }
+            // Cinema / Vimeo
+            { videoId: "655923441", externalUrl: "https://www.imdb.com/title/tt16377446/", tag: "Cinema" },
+            { videoId: "1130499088", externalUrl: "https://www.imdb.com/title/tt31108262/", tag: "Series" },
+            { videoId: "653217840", externalUrl: "https://www.imdb.com/title/tt12670228/", tag: "Series" },
+
+            // Music Videos / Vimeo
+            { videoId: "842794804", externalUrl: "https://www.youtube.com/watch?v=fGIMxEceRLU", tag: "Videoclips" },
+            { videoId: "842792186", externalUrl: "https://www.youtube.com/watch?v=iA8mKWeh3_I", tag: "Videoclips" },
+            { videoId: "367282104", externalUrl: "https://www.youtube.com/watch?v=hCI8ki34p1E", tag: "Videoclips" },
+            { videoId: "813500585", externalUrl: "https://www.youtube.com/watch?v=1OBrY9Nzhak", tag: "Videoclips" },
+            { videoId: "307477937", externalUrl: "https://www.youtube.com/watch?v=w4yg_Gwkk_k", tag: "Videoclips" },
+            { videoId: "261619368", externalUrl: "https://youtu.be/LnlFKqA3Guc?si=68uiQHZGYD8dXV1K", tag: "Videoclips" },
+            { videoId: "187679760", externalUrl: "https://youtu.be/jTIu1hfHD34?si=deQprYkSsRIoCH54", tag: "Videoclips" },
+            { videoId: "413077420", externalUrl: "https://www.youtube.com/watch?v=7cWSzTfFze0", tag: "Videoclips" },
+
+            // YouTube videoclip
+            { videoId: "CQeohNN_Vj4", isYouTube: true, externalUrl: "https://www.youtube.com/watch?v=CQeohNN_Vj4", tag: "Videoclips" },
+
+            // RTP Play
+            { rtpImg: "media/pj7.png", externalUrl: "https://www.rtp.pt/play/p11413/pj-7", tag: "Series"},
+            { rtpImg: "media/tens-ca-disto.png", externalUrl: "https://www.rtp.pt/play/p2469/tens-ca-disto", tag: "Series" }
         ];
+
+        this.currentFilter = null;
         this.renderGrid();
+        this.initHeaderFilters();
+    }
+
+    initHeaderFilters() {
+        const btnMap = {
+            "cinema-btn": "cinema",
+            "series-btn": "series",
+            "videoclip-btn": "videoclips"
+        };
+        Object.keys(btnMap).forEach(btnId => {
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                btn.addEventListener("click", e => {
+                    e.preventDefault();
+                    this.currentFilter = btnMap[btnId];
+                    this.renderGrid();
+                });
+            }
+        });
     }
 
     renderGrid() {
-        const gridHTML = this.projects.map(p => `
-            <div class="project-item" 
-                 data-video-id="${p.videoId || ''}" 
-                 data-rtp-url="${p.rtpURL || ''}" 
-                 data-title="${p.title}" 
-                 data-category="${p.category}" 
+        const filteredProjects = this.currentFilter
+            ? this.projects.filter(p => p.tag.toLowerCase() === this.currentFilter)
+            : this.projects;
+
+        const gridHTML = filteredProjects.map(p => `
+            <div class="project-item"
+                 data-video-id="${p.videoId || ''}"
+                 data-external-url="${p.externalUrl || ''}"
                  data-is-youtube="${p.isYouTube ? 'true' : 'false'}"
-                 data-is-rtp="${p.isRTP ? 'true' : 'false'}">
+                 data-rtp-img="${p.rtpImg || ''}">
                 <div class="overlay"></div>
-                <img class="project-thumbnail" alt="${p.title}">
-                <div class="project-title">${p.title.toUpperCase()}</div>
+                <img class="project-thumbnail" alt="project thumbnail">
             </div>
         `).join('');
 
@@ -44,18 +73,18 @@ export default class HomeView {
         this.loadThumbnailsInBatches();
     }
 
-    async loadThumbnailsInBatches(batchSize = 3, delay = 200) {
+    async loadThumbnailsInBatches(batchSize = 3, delay = 180) {
         const items = Array.from(this.root.querySelectorAll(".project-item"));
         for (let i = 0; i < items.length; i += batchSize) {
             const batch = items.slice(i, i + batchSize);
             await Promise.all(batch.map(async item => {
                 const videoId = item.dataset.videoId;
                 const isYouTube = item.dataset.isYoutube === 'true';
-                const isRTP = item.dataset.isRtp === 'true';
+                const rtpImg = item.dataset.rtpImg;
                 const thumbnail = item.querySelector("img");
 
                 if (thumbnail && !thumbnail.src) {
-                    const thumbURL = await this.fetchThumbnail(videoId, isYouTube, isRTP);
+                    const thumbURL = await this.fetchThumbnail(videoId, isYouTube, rtpImg);
                     thumbnail.src = thumbURL;
                 }
             }));
@@ -64,13 +93,14 @@ export default class HomeView {
 
         this.showStaggeredGrid(items);
         this.initHoverVideos();
-        this.initRTPClicks();
-        this.initParallax(items);
+        this.initExternalClicks();
     }
 
-    async fetchThumbnail(videoId, isYouTube, isRTP) {
-        if (isYouTube) return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-        if (isRTP) return 'media/rtp-placeholder.png';
+    async fetchThumbnail(videoId, isYouTube, rtpImg) {
+        if (rtpImg) return rtpImg;
+        if (isYouTube) return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        if (!videoId) return 'media/vimeo-placeholder.png';
+
         try {
             const res = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`);
             if (!res.ok) throw new Error('Vimeo oEmbed failed');
@@ -84,109 +114,85 @@ export default class HomeView {
 
     showStaggeredGrid(items) {
         items.forEach((item, index) => {
-            setTimeout(() => item.classList.add("show"), index * 100);
+            setTimeout(() => item.classList.add("show"), index * 90);
         });
     }
 
     initHoverVideos() {
         const items = Array.from(this.root.querySelectorAll(".project-item"));
-
         items.forEach(item => {
             const videoId = item.dataset.videoId;
             const isYouTube = item.dataset.isYoutube === "true";
-            const isRTP = item.dataset.isRtp === "true";
+            const rtpImg = item.dataset.rtpImg;
             const thumbnail = item.querySelector("img");
             const overlay = item.querySelector(".overlay");
-            let iframe = null;
+            let ytIframe = null;
             let vimeoPlayer = null;
+            let vimeoContainer = null;
 
             item.addEventListener("mouseenter", () => {
-                overlay.style.opacity = 0.2;
+                if (rtpImg) return; // RTP static images
+                overlay.style.opacity = 0.25;
 
+                // YouTube hover
                 if (isYouTube && videoId) {
-                    iframe = document.createElement("iframe");
-                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0`;
-                    iframe.width = "100%";
-                    iframe.height = "100%";
-                    iframe.frameBorder = "0";
-                    iframe.allow = "autoplay; fullscreen; picture-in-picture";
-                    iframe.allowFullscreen = true;
-                    iframe.style.opacity = 0;
-                    item.appendChild(iframe);
-                    requestAnimationFrame(() => {
-                        iframe.style.opacity = 1;
-                        if (thumbnail) thumbnail.style.opacity = 0;
-                    });
+                    ytIframe = document.createElement("iframe");
+                    ytIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1`;
+                    ytIframe.allow = "autoplay; fullscreen";
+                    ytIframe.frameBorder = "0";
+                    ytIframe.classList.add("video-hover");
+                    item.appendChild(ytIframe);
+                    thumbnail.style.opacity = 0;
                 }
 
-                if (!isYouTube && !isRTP && videoId) {
-                    if (!iframe) {
-                        iframe = document.createElement("div");
-                        item.appendChild(iframe);
-                        vimeoPlayer = new Vimeo.Player(iframe, {
+                // Vimeo hover
+                if (!isYouTube && videoId) {
+                    if (!vimeoContainer) {
+                        vimeoContainer = document.createElement("div");
+                        vimeoContainer.classList.add("video-hover");
+                        item.appendChild(vimeoContainer);
+
+                        vimeoPlayer = new window.Vimeo.Player(vimeoContainer, {
                             id: videoId,
-                            width: item.offsetWidth,
                             autoplay: true,
                             muted: true,
                             controls: false
                         });
-                        vimeoPlayer.on('loaded', () => {
-                            if (thumbnail) thumbnail.style.opacity = 0;
+
+                        vimeoPlayer.on("loaded", () => {
+                            thumbnail.style.opacity = 0;
                         });
-                    } else {
-                        vimeoPlayer.play();
-                        if (thumbnail) thumbnail.style.opacity = 0;
                     }
                 }
             });
 
             item.addEventListener("mouseleave", () => {
+                if (rtpImg) return;
                 overlay.style.opacity = 0;
 
-                if (isYouTube && iframe) {
-                    iframe.style.opacity = 0;
-                    if (thumbnail) thumbnail.style.opacity = 1;
-                    setTimeout(() => {
-                        iframe.remove();
-                        iframe = null;
-                    }, 500);
+                if (ytIframe) {
+                    ytIframe.remove();
+                    ytIframe = null;
+                    thumbnail.style.opacity = 1;
                 }
 
-                if (!isYouTube && !isRTP && vimeoPlayer) {
-                    vimeoPlayer.pause();
-                    if (thumbnail) thumbnail.style.opacity = 1;
+                if (vimeoPlayer) {
+                    vimeoPlayer.pause().catch(() => {});
+                    thumbnail.style.opacity = 1;
                 }
             });
         });
     }
 
-    initRTPClicks() {
+    initExternalClicks() {
         const items = Array.from(this.root.querySelectorAll(".project-item"));
         items.forEach(item => {
-            const isRTP = item.dataset.isRtp === "true";
-            const rtpURL = item.dataset.rtpUrl;
-            if (isRTP && rtpURL) {
-                item.addEventListener("click", () => window.open(rtpURL, "_blank"));
+            const externalUrl = item.dataset.externalUrl;
+            if (externalUrl) {
+                item.addEventListener("click", () => {
+                    window.open(externalUrl, "_blank", "noopener");
+                });
             }
-        });
-    }
-
-    initParallax(items) {
-        items.forEach(item => {
-            item.addEventListener("mousemove", e => {
-                const rect = item.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * 5;
-                const rotateY = ((x - centerX) / centerX) * 5;
-                item.style.transform = `scale(1.03) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            item.addEventListener("mouseleave", () => {
-                item.style.transform = "scale(1.03) rotateX(0deg) rotateY(0deg)";
-            });
         });
     }
 }
