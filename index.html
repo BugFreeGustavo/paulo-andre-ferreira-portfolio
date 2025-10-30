@@ -18,6 +18,8 @@
 
     </script>
 
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
 </head>
 
 <body>
@@ -48,6 +50,17 @@
     <div id="app">
 
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const navUl = document.querySelector('.main-nav ul');
+
+            menuToggle.addEventListener('click', () => {
+                navUl.classList.toggle('show');
+            });
+        });
+    </script>
 </body>
 
 </html>
