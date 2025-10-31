@@ -7,6 +7,10 @@ export default {
         path: '/about',
         controller: 'aboutController'
     },
+    contact: {
+        path: '/contact',
+        controller: 'contactController'
+    },
     experience: {
         path: '/cinema',
         controller: 'cinemaController'
