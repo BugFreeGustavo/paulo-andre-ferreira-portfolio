@@ -4,8 +4,12 @@ export default class HomeView {
         this.projects = [
             // Cinema / Vimeo
             { videoId: "655923441", externalUrl: "https://www.imdb.com/title/tt16377446/", tag: "Cinema" },
-            { videoId: "1130499088", externalUrl: "https://www.imdb.com/title/tt31108262/", tag: "Series" },
+            { videoId: "1130499088", externalUrl: "https://vimeo.com/1130499088", tag: "Series" },
             { videoId: "653217840", externalUrl: "https://www.imdb.com/title/tt12670228/", tag: "Series" },
+
+            // RTP Play
+            { rtpImg: "media/pj7.png", externalUrl: "https://www.rtp.pt/play/p11413/pj-7", tag: "Series"},
+            { rtpImg: "media/tens-ca-disto.png", externalUrl: "https://www.rtp.pt/play/p2469/tens-ca-disto", tag: "Series" },
 
             // Music Videos / Vimeo
             { videoId: "842794804", externalUrl: "https://www.youtube.com/watch?v=fGIMxEceRLU", tag: "Videoclips" },
@@ -18,11 +22,7 @@ export default class HomeView {
             { videoId: "413077420", externalUrl: "https://www.youtube.com/watch?v=7cWSzTfFze0", tag: "Videoclips" },
 
             // YouTube videoclip
-            { videoId: "CQeohNN_Vj4", isYouTube: true, externalUrl: "https://www.youtube.com/watch?v=CQeohNN_Vj4", tag: "Videoclips" },
-
-            // RTP Play
-            { rtpImg: "media/pj7.png", externalUrl: "https://www.rtp.pt/play/p11413/pj-7", tag: "Series"},
-            { rtpImg: "media/tens-ca-disto.png", externalUrl: "https://www.rtp.pt/play/p2469/tens-ca-disto", tag: "Series" }
+            { videoId: "CQeohNN_Vj4", isYouTube: true, externalUrl: "https://www.youtube.com/watch?v=CQeohNN_Vj4", tag: "Videoclips" }
         ];
 
         this.currentFilter = null;
