@@ -19,7 +19,7 @@ export default {
         path: '/series',
         controller: 'seriesController'
     },
-    contact: {
+    videoclips: {
         path: '/videoclips',
         controller: 'videoclipsController'
     },
