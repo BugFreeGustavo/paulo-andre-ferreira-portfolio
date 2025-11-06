@@ -23,17 +23,17 @@ export default class HomeView {
             if (btn) {
                 btn.addEventListener("click", e => {
                     e.preventDefault();
-                    e.stopPropagation(); // ✅ stop router navigation
+                    e.stopPropagation(); //  stop router navigation
 
                     const newFilter = btnMap[btnId];
                     if (this.currentFilter === newFilter) {
-                        // ✅ clicking the same filter resets it (shows all)
+                        //  clicking the same filter resets it (shows all)
                         this.currentFilter = null;
                     } else {
                         this.currentFilter = newFilter;
                     }
 
-                    // ✅ re-render projects based on filter
+                    // re-render projects based on filter
                     this.renderGrid();
                 });
             }
@@ -187,12 +187,12 @@ export default class HomeView {
             const projectId = item.dataset.id;
             item.addEventListener("click", e => {
                 e.preventDefault();
-                e.stopPropagation(); // ✅ prevent page reload
+                e.stopPropagation(); //  prevent page reload
 
                 const newPath = `/project/${projectId}`;
                 history.pushState({ path: newPath, controller: "projectController", id: projectId }, '', newPath);
 
-                // ✅ manually trigger your router listener
+                //  manually trigger your router listener
                 window.dispatchEvent(new PopStateEvent("popstate"));
             });
         });
