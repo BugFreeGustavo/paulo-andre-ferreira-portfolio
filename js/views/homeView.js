@@ -1,29 +1,10 @@
+import { projects } from "../model/projects.js";
+
 export default class HomeView {
     constructor(root) {
         this.root = root;
-        this.projects = [
-            // Cinema / Vimeo
-            { videoId: "655923441", externalUrl: "https://www.imdb.com/title/tt16377446/", tag: "Cinema" },
-            { videoId: "1130499088", externalUrl: "https://vimeo.com/1130499088", tag: "Series" },
-            { videoId: "653217840", externalUrl: "https://www.imdb.com/title/tt12670228/", tag: "Series" },
+        this.projects = projects;
 
-            // RTP Play
-            { rtpImg: "media/pj7.png", externalUrl: "https://www.rtp.pt/play/p11413/pj-7", tag: "Series"},
-            { rtpImg: "media/tens-ca-disto.png", externalUrl: "https://www.rtp.pt/play/p2469/tens-ca-disto", tag: "Series" },
-
-            // Music Videos / Vimeo
-            { videoId: "842794804", externalUrl: "https://www.youtube.com/watch?v=fGIMxEceRLU", tag: "Videoclips" },
-            { videoId: "842792186", externalUrl: "https://www.youtube.com/watch?v=iA8mKWeh3_I", tag: "Videoclips" },
-            { videoId: "367282104", externalUrl: "https://www.youtube.com/watch?v=hCI8ki34p1E", tag: "Videoclips" },
-            { videoId: "813500585", externalUrl: "https://www.youtube.com/watch?v=1OBrY9Nzhak", tag: "Videoclips" },
-            { videoId: "307477937", externalUrl: "https://www.youtube.com/watch?v=w4yg_Gwkk_k", tag: "Videoclips" },
-            { videoId: "261619368", externalUrl: "https://youtu.be/LnlFKqA3Guc?si=68uiQHZGYD8dXV1K", tag: "Videoclips" },
-            { videoId: "187679760", externalUrl: "https://youtu.be/jTIu1hfHD34?si=deQprYkSsRIoCH54", tag: "Videoclips" },
-            { videoId: "413077420", externalUrl: "https://www.youtube.com/watch?v=7cWSzTfFze0", tag: "Videoclips" },
-
-            // YouTube videoclip
-            { videoId: "CQeohNN_Vj4", isYouTube: true, externalUrl: "https://www.youtube.com/watch?v=CQeohNN_Vj4", tag: "Videoclips" }
-        ];
 
         this.currentFilter = null;
         this.renderGrid();
@@ -36,31 +17,44 @@ export default class HomeView {
             "series-btn": "series",
             "videoclip-btn": "videoclips"
         };
+
         Object.keys(btnMap).forEach(btnId => {
             const btn = document.getElementById(btnId);
             if (btn) {
                 btn.addEventListener("click", e => {
                     e.preventDefault();
-                    this.currentFilter = btnMap[btnId];
+                    e.stopPropagation(); // ✅ stop router navigation
+
+                    const newFilter = btnMap[btnId];
+                    if (this.currentFilter === newFilter) {
+                        // ✅ clicking the same filter resets it (shows all)
+                        this.currentFilter = null;
+                    } else {
+                        this.currentFilter = newFilter;
+                    }
+
+                    // ✅ re-render projects based on filter
                     this.renderGrid();
                 });
             }
         });
     }
 
+
     renderGrid() {
+
         const filteredProjects = this.currentFilter
-            ? this.projects.filter(p => p.tag.toLowerCase() === this.currentFilter)
+            ? this.projects.filter(p => p.tag.trim().toLowerCase() === this.currentFilter)
             : this.projects;
 
         const gridHTML = filteredProjects.map(p => `
             <div class="project-item"
+                 data-id="${p.id}"
                  data-video-id="${p.videoId || ''}"
-                 data-external-url="${p.externalUrl || ''}"
-                 data-is-youtube="${p.isYouTube ? 'true' : 'false'}"
+                 data-isYoutube="${p.isYouTube ? 'true' : 'false'}"
                  data-rtp-img="${p.rtpImg || ''}">
                 <div class="overlay"></div>
-                <img class="project-thumbnail" alt="project thumbnail">
+                <img class="project-thumbnail" alt="${p.title}">
             </div>
         `).join('');
 
@@ -79,7 +73,7 @@ export default class HomeView {
             const batch = items.slice(i, i + batchSize);
             await Promise.all(batch.map(async item => {
                 const videoId = item.dataset.videoId;
-                const isYouTube = item.dataset.isYoutube === 'true';
+                const isYouTube = item.dataset.isYoutube === 'true' || item.dataset.isYoutube === true;
                 const rtpImg = item.dataset.rtpImg;
                 const thumbnail = item.querySelector("img");
 
@@ -93,7 +87,7 @@ export default class HomeView {
 
         this.showStaggeredGrid(items);
         this.initHoverVideos();
-        this.initExternalClicks();
+        this.initProjectClicks();
     }
 
     async fetchThumbnail(videoId, isYouTube, rtpImg) {
@@ -131,10 +125,9 @@ export default class HomeView {
             let vimeoContainer = null;
 
             item.addEventListener("mouseenter", () => {
-                if (rtpImg) return; // RTP static images
+                if (rtpImg) return;
                 overlay.style.opacity = 0.25;
 
-                // YouTube hover
                 if (isYouTube && videoId) {
                     ytIframe = document.createElement("iframe");
                     ytIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1`;
@@ -145,7 +138,6 @@ export default class HomeView {
                     thumbnail.style.opacity = 0;
                 }
 
-                // Vimeo hover
                 if (!isYouTube && videoId) {
                     if (!vimeoContainer) {
                         vimeoContainer = document.createElement("div");
@@ -176,23 +168,35 @@ export default class HomeView {
                     thumbnail.style.opacity = 1;
                 }
 
-                if (vimeoPlayer) {
-                    vimeoPlayer.pause().catch(() => {});
+                if (vimeoContainer) {
+                    vimeoPlayer.pause().catch(() => { });
+                    vimeoContainer.remove();
+                    vimeoContainer = null;
+                    vimeoPlayer = null;
                     thumbnail.style.opacity = 1;
                 }
+
             });
         });
     }
 
-    initExternalClicks() {
+    initProjectClicks() {
         const items = Array.from(this.root.querySelectorAll(".project-item"));
+
         items.forEach(item => {
-            const externalUrl = item.dataset.externalUrl;
-            if (externalUrl) {
-                item.addEventListener("click", () => {
-                    window.open(externalUrl, "_blank", "noopener");
-                });
-            }
+            const projectId = item.dataset.id;
+            item.addEventListener("click", e => {
+                e.preventDefault();
+                e.stopPropagation(); // ✅ prevent page reload
+
+                const newPath = `/project/${projectId}`;
+                history.pushState({ path: newPath, controller: "projectController", id: projectId }, '', newPath);
+
+                // ✅ manually trigger your router listener
+                window.dispatchEvent(new PopStateEvent("popstate"));
+            });
         });
     }
+
+
 }

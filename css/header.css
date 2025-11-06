@@ -6,6 +6,7 @@ body {
     padding-top: 100px;
 }
 
+/* HEADER */
 .main-header {
     position: fixed;
     top: 0;
@@ -33,6 +34,7 @@ body {
     background-color: transparent;
 }
 
+/* LOGO */
 .logo img {
     height: 100px;
     width: auto;
@@ -43,12 +45,9 @@ body {
 }
 
 @keyframes logoPulse {
-
-    0%,
-    100% {
+    0%, 100% {
         filter: drop-shadow(0 0 2px rgba(179, 215, 255, 0.2));
     }
-
     50% {
         filter: drop-shadow(0 0 6px rgba(179, 215, 255, 0.5));
     }
@@ -59,6 +58,7 @@ body {
     filter: drop-shadow(0 0 10px rgba(179, 215, 255, 0.6));
 }
 
+/* NAVIGATION */
 .main-nav {
     display: flex;
     justify-content: center;
@@ -74,23 +74,30 @@ body {
     flex-wrap: nowrap;
 }
 
-.main-nav a {
-    position: relatwive;
+/* Base link/button look */
+.main-nav a,
+.main-nav button {
+    position: relative;
     display: inline-block;
     padding: 8px 16px;
     color: #fff;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.3s ease;
     border: 1px solid transparent;
     border-radius: 4px;
-    flex-shrink: 0;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.main-nav a::before {
+/* Glowing subtle gradient */
+.main-nav a::before,
+.main-nav button::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -102,36 +109,47 @@ body {
 }
 
 @keyframes glowPulse {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 0.4;
         filter: blur(1px);
     }
-
     50% {
         opacity: 0.8;
         filter: blur(2px);
     }
 }
 
-.main-nav a:hover {
+/* Hover / active */
+.main-nav a:hover,
+.main-nav button:hover {
     color: #fff;
     transform: translateY(-2px);
     border-color: rgba(179, 215, 255, 0.4);
     box-shadow: 0 0 12px rgba(179, 215, 255, 0.5);
 }
 
-.main-nav a:hover::before {
-    opacity: 1;
-}
-
-.main-nav a.active {
+.main-nav a.active,
+.main-nav button.active {
     color: #fff;
     border-color: rgba(179, 215, 255, 0.6);
     box-shadow: 0 0 14px rgba(179, 215, 255, 0.6);
 }
 
+/* Menu Toggle for Mobile */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle div {
+    width: 28px;
+    height: 3px;
+    background-color: #b3d7ff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
     .main-header {
         padding: 16px 24px;
@@ -160,29 +178,14 @@ body {
         display: flex;
     }
 
-    .main-nav a {
+    .main-nav a,
+    .main-nav button {
         font-size: 1rem;
         padding: 10px 16px;
     }
 
     .menu-toggle {
         display: block;
-        cursor: pointer;
         order: 1;
     }
-
-    .menu-toggle div {
-        width: 28px;
-        height: 3px;
-        background-color: #b3d7ff;
-        margin: 5px 0;
-        transition: all 0.3s ease;
-    }
-
-    header button.active {
-  border-bottom: 2px solid white;
-  color: white;
-  transition: 0.3s;
-}
-
 }

@@ -23,6 +23,10 @@ export default {
         path: '/videoclips',
         controller: 'videoclipsController'
     },
+    projects: {
+        path: '/project',
+        controller: 'projectController'
+    },
     currentPath: {
         path: '',
         controller: ''
