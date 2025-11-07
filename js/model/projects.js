@@ -125,12 +125,12 @@ export const projects = [
     // YouTube videoclip
     {
         id: "yt-CQeohNN_Vj4",
-        title: "",
+        title: "Martim Baginha - Serra dos Amores",
         description: "",
         credits: "",
         videoId: "CQeohNN_Vj4",
         isYouTube: true,
-        externalUrl: "https://www.youtube.com/watch?v=CQeohNN_Vj4",
+        externalUrl: "https://vimeo.com/1132464661",
         tag: "Videoclips"
     }
 ];
