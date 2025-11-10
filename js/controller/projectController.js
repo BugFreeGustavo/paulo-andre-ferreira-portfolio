@@ -1,5 +1,5 @@
-import ProjectView from "../view/projectView.js";
-import HomeView from "../view/homeView.js";
+import ProjectView from "../views/projectView.js";
+import HomeView from "../views/homeView.js";
 
 export function init() {
     const root = document.getElementById("app");

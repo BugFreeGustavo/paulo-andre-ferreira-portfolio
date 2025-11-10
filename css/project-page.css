@@ -1,57 +1,233 @@
 .project-page {
-    padding: 40px 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #111;
-    background: #fff;
-    min-height: 80vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    color: #fff;
+    animation: fadeIn 0.6s ease-out;
 }
 
-.project-video,
+.project-video {
+    width: 100%;
+    height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(179, 215, 255, 0.3);
+}
+
 .project-img {
     width: 100%;
-    max-width: 900px;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(179, 215, 255, 0.2);
 }
 
 .project-info {
-    text-align: center;
-    max-width: 700px;
+    margin-top: 40px;
+    line-height: 1.6;
 }
 
-.project-info h1 {
-    font-size: 1.8rem;
+.project-title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.project-info p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 12px;
+.project-description {
+    font-size: 1.1rem;
+    margin: 10px 0 20px;
+    color: #ccc;
+}
+
+.project-credits {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 20px;
 }
 
 .external-link {
     display: inline-block;
-    margin-top: 8px;
-    color: #222;
-    text-decoration: underline;
-    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid rgba(179, 215, 255, 0.5);
+    border-radius: 4px;
+    color: #b3d7ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.external-link:hover {
+    background-color: rgba(179, 215, 255, 0.1);
+    box-shadow: 0 0 10px rgba(179, 215, 255, 0.3);
+}
+
+.project-gallery {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(179, 215, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.project-awards {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.project-awards h3 {
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #b3d7ff;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+
+.awards-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.awards-grid img {
+    height: 150px;
+    width: auto;
+    filter: drop-shadow(0 0 4px rgba(179, 215, 255, 0.4));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.awards-grid img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(179, 215, 255, 0.8));
 }
 
 .back-btn {
-    align-self: flex-start;
-    margin-bottom: 24px;
     background: none;
     border: none;
+    color: #b3d7ff;
     font-size: 1.2rem;
     cursor: pointer;
-    color: #111;
-    transition: 0.2s;
+    margin-bottom: 20px;
+    transition: opacity 0.3s ease;
 }
 
 .back-btn:hover {
-    color: #666;
+    opacity: 0.8;
+}
+
+/* LIGHTBOX STYLES */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(179, 215, 255, 0.4);
+    object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: #b3d7ff;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-close {
+    top: 30px;
+    right: 40px;
+    font-size: 3rem;
+}
+
+.lightbox-prev {
+    left: 50px;
+}
+
+.lightbox-next {
+    right: 50px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover,
+.lightbox-close:hover {
+    opacity: 0.7;
+}
+
+/* --- Project Description --- */
+.project-description {
+    margin: 20px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #000000; /* soft light gray for readability */
+}
+
+.project-description .desc-pt,
+.project-description .desc-en {
+    margin-bottom: 1rem;
+}
+
+.project-description strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #0000004a; /* accent color */
+}
+
+/* Optional: subtle italic for EN text */
+.project-description .desc-en p {
+    font-style: italic;
+}
+
+/* --- Project Credits --- */
+.project-credits {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #2d2d2d;
+}
+
+.project-credits br {
+    content: "";
+    margin-bottom: 0.25rem;
+}
+
+/* Optional: make each credit line slightly indented */
+.project-credits span {
+    display: block;
+    margin-left: 5px;
+}
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }

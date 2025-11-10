@@ -187,16 +187,20 @@ export default class HomeView {
             const projectId = item.dataset.id;
             item.addEventListener("click", e => {
                 e.preventDefault();
-                e.stopPropagation(); //  prevent page reload
+                e.stopPropagation(); // prevent page reload
 
                 const newPath = `/project/${projectId}`;
-                history.pushState({ path: newPath, controller: "projectController", id: projectId }, '', newPath);
+                const state = { path: newPath, controller: "projectController", id: projectId };
 
-                //  manually trigger your router listener
-                window.dispatchEvent(new PopStateEvent("popstate"));
+                // Push the new URL to browser history
+                history.pushState(state, '', newPath);
+
+                // Dispatch PopStateEvent with the same state (so router.js gets it)
+                window.dispatchEvent(new PopStateEvent("popstate", { state }));
             });
         });
     }
+
 
 
 }
