@@ -34,16 +34,18 @@ export const projects = [
             "Direcção de Fotografia: Miguel Manso (A.I.P.)" +
             "Edição: Ricardo Oliveira" +
             "Música: Fred Menos" +
-            "" +
-            "" +
+            "\n" +
+            "\n" +
             "Realização Série: Manuel Pureza",
         videoId: "1130499088",
         externalUrl: "https://vimeo.com/1130499088",
-        tag: "Series"
+        tag: "Series",
+        images: ["/media/SEMPRE/still1.png", "/media/SEMPRE/still2.png","/media/SEMPRE/still3.png", "/media/SEMPRE/still4.png", "/media/SEMPRE/still5.png", "/media/SEMPRE/still6.png", "/media/SEMPRE/still7.png", "/media/SEMPRE/still8.png", "/media/SEMPRE/still9.png"],
+        awards: []
     },
     {
         id: "vimeo-653217840",
-        title: "",
+        title: "A Generala ( genérico )",
         description: "",
         credits: "Realização: Paulo André Ferreira" +
             "Direcção de Fotografia: Miguel Manso (A.I.P.)" +
@@ -54,7 +56,9 @@ export const projects = [
             "Realização Série: Sérgio Graciano",
         videoId: "653217840",
         externalUrl: "https://vimeo.com/653217840",
-        tag: "Series"
+        tag: "Series",
+        images:["/media/GENERALA/still-1.png", "/media/GENERALA/still-2.png", "/media/GENERALA/still-3.png", "/media/GENERALA/still-4.png"],
+        awards: []
     },
 
     // RTP Play
@@ -92,18 +96,22 @@ export const projects = [
             "Data manager Rayza Rei " +
             "music editor Sebastião Macedo " +
             "Script Continuity Department Fábio Freitas",
-        rtpImg: "media/pj7.png",
+        rtpImg: "/media/pj7.png",
         externalUrl: "https://www.rtp.pt/play/p11413/pj-7",
-        tag: "Series"
+        tag: "Series",
+        images:["/media/PJ7/still-1.png", "/media/PJ7/still-2.png", "/media/PJ7/still-3.png", "/media/PJ7/still-4.png", "/media/PJ7/still-5.png", "/media/PJ7/still-6.png", "/media/PJ7/still-7.png", "/media/PJ7/still-8.png", "/media/PJ7/still-9.png", "/media/PJ7/still-10.png"],
+        awards: []
     },
     {
         id: "rtp-tens-ca-disto",
         title: "Tens cá disto? 2012",
         description: "\"Tens cá disto?\" é uma série sobre Tascas do nosso Portugal, onde mostramos um pouco do que se come por cada região, contado pelos clientes da tasca. O que sugerem, o que os leva aquela casa é o que apresentamos neste programa de sabores, tradições e pessoas.",
         credits: "Realização e edição: Paulo André Ferreira",
-        rtpImg: "media/tens-ca-disto.png",
+        rtpImg: "/media/tens-ca-disto.png",
         externalUrl: "https://www.rtp.pt/play/p2469/tens-ca-disto",
-        tag: "Series"
+        tag: "Series",
+        images:["/media/TENS_CA_DISTO/still-1.png", "/media/TENS_CA_DISTO/still-2.png", "/media/TENS_CA_DISTO/still-3.png", "/media/TENS_CA_DISTO/still-4.png", "/media/TENS_CA_DISTO/still-5.png", "/media/TENS_CA_DISTO/still-6.png"],
+        awards: []
     },
 
     // Music Videos / Vimeo
@@ -161,7 +169,9 @@ export const projects = [
             "Sony Music Portugal ",
         videoId: "842794804",
         externalUrl: "https://www.youtube.com/watch?v=fGIMxEceRLU",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/NENA/nena-1.jpg", "/media/NENA/nena-2.jpg","/media/NENA/nena-3.jpg","/media/NENA/nena-4.jpg","/media/NENA/nena-5.jpg","/media/NENA/nena-6.jpg","/media/NENA/nena-7.jpg","/media/NENA/nena-8.jpg"],
+        awards: []
     },
     {
         id: "vimeo-842792186",
@@ -203,7 +213,9 @@ export const projects = [
             "Agradecimento especial: PHILIPS SOLUÇÕES AUDITIVAS",
         videoId: "842792186",
         externalUrl: "https://www.youtube.com/watch?v=iA8mKWeh3_I",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/CUCA_ROSETA/cuca-1.png", "/media/CUCA_ROSETA/cuca-2.png", "/media/CUCA_ROSETA/cuca-3.png", "/media/CUCA_ROSETA/cuca-4.png"],
+        awards: []
     },
     {
         id: "vimeo-367282104",
@@ -258,7 +270,9 @@ export const projects = [
             "Helena Camacho",
         videoId: "367282104",
         externalUrl: "https://www.youtube.com/watch?v=hCI8ki34p1E",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/NAPA/napa-1.png","/media/NAPA/napa-2.png","/media/NAPA/napa-3.png"],
+        awards: []
     },
     {
         id: "vimeo-813500585",
@@ -308,7 +322,9 @@ export const projects = [
             "Estúdio Zeco",
         videoId: "813500585",
         externalUrl: "https://www.youtube.com/watch?v=1OBrY9Nzhak",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/Monica/monica-1.png", "/media/Monica/monica-2.png", "/media/Monica/monica-3.png", "/media/Monica/monica-4.png", "/media/Monica/monica-5.png", "/media/Monica/monica-6.png"],
+        awards: []
     },
     {
         id: "vimeo-307477937",
@@ -355,7 +371,9 @@ export const projects = [
             "Complexo1025",
         videoId: "307477937",
         externalUrl: "https://www.youtube.com/watch?v=w4yg_Gwkk_k",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/PATAMAR/patamar-1.png", "/media/PATAMAR/patamar-2.png", "/media/PATAMAR/patamar-3.png"],
+        awards: []
     },
     {
         id: "vimeo-261619368",
@@ -413,7 +431,9 @@ export const projects = [
             "Cristina Matos",
         videoId: "261619368",
         externalUrl: "https://youtu.be/LnlFKqA3Guc?si=68uiQHZGYD8dXV1K",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/ADEUS_BARBANTE/adeus-1.png","/media/ADEUS_BARBANTE/adeus-2.png","/media/ADEUS_BARBANTE/adeus-3.png","/media/ADEUS_BARBANTE/adeus-4.png","/media/ADEUS_BARBANTE/adeus-5.png","/media/ADEUS_BARBANTE/adeus-6.png"],
+        awards: []
     },
     {
         id: "vimeo-187679760",
@@ -472,7 +492,9 @@ export const projects = [
             "Agradecimentos: Pedro Lobato, João Saldanha, Ricardo Figueiredo, Rodrigo Pinto Correia, Tânia Fernandes, Joana Neves, Isabel Guerreiro, Paulo Neves, Tomé Costa, Diogo Ferreira, Nuno de Albuquerque, Inês Correia Mendes e ZOF",
         videoId: "187679760",
         externalUrl: "https://youtu.be/jTIu1hfHD34?si=deQprYkSsRIoCH54",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/CAO_BARBANTE/cao-1.png", "/media/CAO_BARBANTE/cao-2.png", "/media/CAO_BARBANTE/cao-3.png", "/media/CAO_BARBANTE/cao-4.png"],
+        awards: []
     },
     {
         id: "vimeo-413077420",
@@ -488,7 +510,9 @@ export const projects = [
             "in Earthship inspired Studio",
         videoId: "413077420",
         externalUrl: "https://www.youtube.com/watch?v=7cWSzTfFze0",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/COCO_PILOTS/pilots-1.png", "/media/COCO_PILOTS/pilots-2.png", "/media/COCO_PILOTS/pilots-3.png", "/media/COCO_PILOTS/pilots-4.png"],
+        awards: []
     },
     {
         id: "vimeo-1132464661",
@@ -504,8 +528,9 @@ export const projects = [
             "Montagem: André Costa" +
             "Correcção de Cor: Filipe Pinto Silva",
         videoId: "1132464661",
-        isYouTube: true,
         externalUrl: "https://vimeo.com/1132464661",
-        tag: "Videoclips"
+        tag: "Videoclips",
+        images:["/media/Martim/martim-1.png", "/media/Martim/martim-2.png", "/media/Martim/martim-3.png","/media/Martim/martim-4.png", "/media/Martim/martim-5.png","/media/Martim/martim-6.png","/media/Martim/martim-7.png","/media/Martim/martim-8.png"],
+        awards: []
     }
 ];

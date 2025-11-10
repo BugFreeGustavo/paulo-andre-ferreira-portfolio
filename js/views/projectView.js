@@ -92,7 +92,7 @@ export default class ProjectView {
 
         // Event listeners
         this.root.querySelector(".back-btn").addEventListener("click", () => {
-            history.pushState({}, '', '/home');
+            history.pushState({}, '', '/');
             window.dispatchEvent(new PopStateEvent("popstate"));
         });
 
