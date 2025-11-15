@@ -53,7 +53,11 @@ export default class HomeView {
                  data-video-id="${p.videoId || ''}"
                  data-isYoutube="${p.isYouTube ? 'true' : 'false'}"
                  data-rtp-img="${p.rtpImg || ''}">
+
                 <div class="overlay"></div>
+
+                <div class="project-title-thumbnail" style="color: #ffffff;">${p.title}</div>
+
                 <img class="project-thumbnail" alt="${p.title}">
             </div>
         `).join('');
@@ -200,7 +204,4 @@ export default class HomeView {
             });
         });
     }
-
-
-
 }

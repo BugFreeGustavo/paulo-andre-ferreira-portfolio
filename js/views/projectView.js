@@ -94,6 +94,7 @@ export default class ProjectView {
         this.root.querySelector(".back-btn").addEventListener("click", () => {
             history.pushState({}, '', '/');
             window.dispatchEvent(new PopStateEvent("popstate"));
+            window.location.reload();
         });
 
         this.initLightbox();
@@ -116,11 +117,46 @@ export default class ProjectView {
     `;
     }
 
-    // Helper to format credits
     formatCredits(credits) {
         if (!credits) return "";
-        return credits.split("+").map(c => c.trim()).join("<br>");
+
+        return credits
+            // Split each credit block by "|"
+            .split("|")
+            .map(block => block.trim())
+            .filter(block => block.length > 0)
+            .map(block => {
+                // Split labels (PT/EN/etc) and the value
+                const colonIndex = block.indexOf(":");
+
+                // If missing colon — treat entire block as labels only
+                if (colonIndex === -1) {
+                    const labels = block
+                        .split(/\/\/+/g)
+                        .map(l => l.trim())
+                        .filter(l => l.length > 0)
+                        .join(" / ");
+
+                    return `<strong>${labels}</strong>`;
+                }
+
+                // Extract the label section + the value after the colon
+                const rawLabels = block.slice(0, colonIndex).trim();
+                const value = block.slice(colonIndex + 1).trim();
+
+                // PT/EN labels separated by //
+                const labels = rawLabels
+                    .split(/\/\/+/g)
+                    .map(l => l.trim())
+                    .filter(l => l.length > 0)
+                    .join(" / ");
+
+                return `<strong>${labels}</strong>: ${value}`;
+            })
+            .join("<br>");
     }
+
+
 
 
     initLightbox() {

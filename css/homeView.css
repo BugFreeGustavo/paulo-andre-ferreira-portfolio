@@ -21,7 +21,8 @@ body {
 
 .project-item {
   position: relative;
-  width: 70%; /* centered and smaller */
+  width: 70%;
+  /* centered and smaller */
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   border-radius: 16px;
@@ -46,7 +47,8 @@ body {
   display: block;
   transition: opacity 0.4s ease;
   border-radius: 16px;
-  z-index: 2; /* always on top so clicks work */
+  z-index: 2;
+  /* always on top so clicks work */
 }
 
 .overlay {
@@ -76,8 +78,10 @@ body {
   opacity: 0;
   animation: fadeInVideo 0.5s forwards ease;
   object-fit: cover;
-  z-index: 1; /* below thumbnail but still visible for aesthetics */
-  pointer-events: none; /* clicks pass through to the parent */
+  z-index: 1;
+  /* below thumbnail but still visible for aesthetics */
+  pointer-events: none;
+  /* clicks pass through to the parent */
 }
 
 .project-item:hover .video-hover {
@@ -88,24 +92,67 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
+
 .project-item.show img {
   opacity: 1;
 }
 
+/* --- Project Title Overlay --- */
+.project-title-thumbnail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  max-width: 90%;
+
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7),
+               0 0 12px rgba(0, 0, 0, 0.5);
+
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(2px);
+}
+
+/* Fade in when grid animation finishes */
+.project-item.show .project-title-thumbnail {
+  opacity: 1;
+}
+
+/* Hover effect — cinematic scale + glow */
+.project-item:hover .project-title-thumbnail {
+  transform: translate(-50%, -50%) scale(1.08);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+
 
 @keyframes fadeInVideo {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .filter-btn {
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    text-transform: uppercase;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
 }
+
 .filter-btn:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
