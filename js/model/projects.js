@@ -3,8 +3,17 @@ export const projects = [
     {
         id: "asferas",
         title: "As Feras 2022",
-        description: "PT: SINOPSE Três mulheres precisam de se manter unidas no meio de um bairro de Lisboa. Mafalda é mãe de Leonor, uma jovem que anseia por um mundo de igualdade. Durante o almoço, Rita aproxima-se de Mafalda para pedir ajuda, ela tenta esconder-se do marido. Tal como uma leoa, Mafalda ao sentir a manda ameaçada torna-se uma fera.\n\nEN: SYNOPSIS In the middle of a Lisbon neighbourhood three women have to stick together. Mafalda is the mother of Leonor, a young woman who wants a world of equality. During their lunch Rita comes over to ask Mafalda's help, she is running from her husband João.\n\nFESTIVAIS // FESTIVALS: FEST - New Directors | New Films Festival - GRANDE PRÉMIO NACIONAL 2023 // Porto Femme - nomeação Competição XX Element 2022 // Prémio Curtas - Nomeações: Melhor Caracterização, Melhor Argumento, Melhor Actriz Secundária e Melhor Curta de Ficção. Prémios: Melhor Actriz Secundária (Rita Tristão), 2023 // Entre Olhares - Competição Nacional - Nomeação melhor curta de ficção.",
-        credits: "FOTOGRAFIA // PHOTOGRAPHY: Miguel Manso (A.I.P.) ||" +
+        description: "PT: SINOPSE Três mulheres precisam de se manter unidas no meio de um bairro de Lisboa. Mafalda é mãe de Leonor, uma jovem que anseia por um mundo de igualdade. Durante o almoço, Rita aproxima-se de Mafalda para pedir ajuda, ela tenta esconder-se do marido. Tal como uma leoa, Mafalda ao sentir a manda ameaçada torna-se uma fera.\n\nEN: SYNOPSIS In the middle of a Lisbon neighbourhood three women have to stick together. Mafalda is the mother of Leonor, a young woman who wants a world of equality. During their lunch Rita comes over to ask Mafalda's help, she is running from her husband João.",
+        credits:  
+            "FESTIVAIS // FESTIVALS: || " +
+            "<br>" +  
+            "FEST: New Directors ||" + 
+            "New Films Festival: GRANDE PRÉMIO NACIONAL 2023 ||" + 
+            "Porto Femme: nomeação Competição XX Element 2022 ||" + 
+            "Prémio Curtas - Nomeações: Melhor Caracterização, Melhor Argumento, Melhor Actriz Secundária e Melhor Curta de Ficção ||Prémios: Melhor Actriz Secundária (Rita Tristão), 2023 ||" + 
+            "Entre Olhares - Competição Nacional: Nomeação melhor curta de ficção ||" + 
+            "<br>" + 
+            "FOTOGRAFIA // PHOTOGRAPHY: Miguel Manso (A.I.P.) ||" +
             "ARGUMENTO E DIÁLOGOS // SCREENPLAY: Paulo André Ferreira ||// GUIÃO // SCRIPT: Paulo André Ferreira || PROTAGONISTAS // STARRING: Lúcia Moniz, Rita Tristão, Romeu Vala, Margarida Cardoso, Daniela Cabaças ||" +
             "COMPOSITOR MUSICAL // MUSIC COMPOSER: Eduardo Queiroz ||" +
             "CRIAÇÃO GRÁFICA // GRAPHICS: Dário Gomes ||" +
