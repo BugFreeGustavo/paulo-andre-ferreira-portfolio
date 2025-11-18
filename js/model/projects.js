@@ -2,17 +2,18 @@ export const projects = [
     // Cinema / Vimeo
     {
         id: "asferas",
+        thumbnail_title: "As Feras",
         title: "As Feras 2022",
         description: "PT: SINOPSE Três mulheres precisam de se manter unidas no meio de um bairro de Lisboa. Mafalda é mãe de Leonor, uma jovem que anseia por um mundo de igualdade. Durante o almoço, Rita aproxima-se de Mafalda para pedir ajuda, ela tenta esconder-se do marido. Tal como uma leoa, Mafalda ao sentir a manda ameaçada torna-se uma fera.\n\nEN: SYNOPSIS In the middle of a Lisbon neighbourhood three women have to stick together. Mafalda is the mother of Leonor, a young woman who wants a world of equality. During their lunch Rita comes over to ask Mafalda's help, she is running from her husband João.",
-        credits:  
+        credits:
             "FESTIVAIS // FESTIVALS: || " +
-            "<br>" +  
-            "FEST: New Directors ||" + 
-            "New Films Festival: GRANDE PRÉMIO NACIONAL 2023 ||" + 
-            "Porto Femme: nomeação Competição XX Element 2022 ||" + 
-            "Prémio Curtas - Nomeações: Melhor Caracterização, Melhor Argumento, Melhor Actriz Secundária e Melhor Curta de Ficção ||Prémios: Melhor Actriz Secundária (Rita Tristão), 2023 ||" + 
-            "Entre Olhares - Competição Nacional: Nomeação melhor curta de ficção ||" + 
-            "<br>" + 
+            "<br>" +
+            "FEST: New Directors ||" +
+            "New Films Festival: GRANDE PRÉMIO NACIONAL 2023 ||" +
+            "Porto Femme: nomeação Competição XX Element 2022 ||" +
+            "Prémio Curtas - Nomeações: Melhor Caracterização, Melhor Argumento, Melhor Actriz Secundária e Melhor Curta de Ficção ||Prémios: Melhor Actriz Secundária (Rita Tristão), 2023 ||" +
+            "Entre Olhares - Competição Nacional: Nomeação melhor curta de ficção ||" +
+            "<br>" +
             "FOTOGRAFIA // PHOTOGRAPHY: Miguel Manso (A.I.P.) ||" +
             "ARGUMENTO E DIÁLOGOS // SCREENPLAY: Paulo André Ferreira ||// GUIÃO // SCRIPT: Paulo André Ferreira || PROTAGONISTAS // STARRING: Lúcia Moniz, Rita Tristão, Romeu Vala, Margarida Cardoso, Daniela Cabaças ||" +
             "COMPOSITOR MUSICAL // MUSIC COMPOSER: Eduardo Queiroz ||" +
@@ -37,6 +38,7 @@ export const projects = [
     },
     {
         id: "sempre-generico",
+        thumbnail_title: "SEMPRE ( genérico )",
         title: "SEMPRE ( genérico )",
         description: "",
         credits: "REALIZAÇÃO // DIRECTOR: Paulo André Ferreira ||" +
@@ -49,11 +51,12 @@ export const projects = [
         videoId: "1130499088",
         externalUrl: "https://vimeo.com/1130499088",
         tag: "Series",
-        images: ["/media/SEMPRE/still1.png", "/media/SEMPRE/still2.png","/media/SEMPRE/still3.png", "/media/SEMPRE/still4.png", "/media/SEMPRE/still5.png", "/media/SEMPRE/still6.png", "/media/SEMPRE/still7.png", "/media/SEMPRE/still8.png", "/media/SEMPRE/still9.png"],
+        images: ["/media/SEMPRE/still1.png", "/media/SEMPRE/still2.png", "/media/SEMPRE/still3.png", "/media/SEMPRE/still4.png", "/media/SEMPRE/still5.png", "/media/SEMPRE/still6.png", "/media/SEMPRE/still7.png", "/media/SEMPRE/still8.png", "/media/SEMPRE/still9.png"],
         awards: []
     },
     {
         id: "agenerala",
+        thumbnail_title: "A Generala ( genérico )",
         title: "A Generala ( genérico )",
         description: "",
         credits: "REALIZAÇÃO // DIRECTOR: Paulo André Ferreira ||" +
@@ -66,17 +69,18 @@ export const projects = [
         videoId: "653217840",
         externalUrl: "https://vimeo.com/653217840",
         tag: "Series",
-        images:["/media/GENERALA/still-1.png", "/media/GENERALA/still-2.png", "/media/GENERALA/still-3.png", "/media/GENERALA/still-4.png"],
+        images: ["/media/GENERALA/still-1.png", "/media/GENERALA/still-2.png", "/media/GENERALA/still-3.png", "/media/GENERALA/still-4.png"],
         awards: []
     },
 
     // RTP Play
     {
         id: "rtp-pj7",
+        thumbnail_title: "PJ7",
         title: "PJ7",
         description: "Série documental sobre casos famosos de polícia em Portugal. Relato único e intenso na primeira pessoa, olhos nos olhos com os inspetores que lideraram as investigações. Oito casos que vamos investigar e resolver com base nos depoimentos únicos de 27 profissionais de investigação criminal da Polícia Judiciária e nos arquivos da RTP e da própria PJ. Os casos em análise são: Rei Ghob, Gangue do Vale do Sousa, Anonymous, Operação Levante, Meia Culpa, Remédio Santo, Homicídio do Rio Trancão e Violador de Telheiras.",
         credits: "REALIZAÇÃO // DIRECTOR: Paulo André Ferreira ||" +
-            "PRODUÇÃO // PRODUCTION COMPANY: Sky Dreams Entertainment ||" + 
+            "PRODUÇÃO // PRODUCTION COMPANY: Sky Dreams Entertainment ||" +
             "ANO // YEAR: 2023 ||" +
             "<br>" +
             "FOTOGRAFIA // PHOTOGRAPHY: Miguel Manso (A.I.P) ||" +
@@ -105,27 +109,31 @@ export const projects = [
         rtpImg: "/media/pj7.png",
         externalUrl: "https://www.rtp.pt/play/p11413/pj-7",
         tag: "Series",
-        images:["/media/PJ7/still-1.png", "/media/PJ7/still-2.png", "/media/PJ7/still-3.png", "/media/PJ7/still-4.png", "/media/PJ7/still-5.png", "/media/PJ7/still-6.png", "/media/PJ7/still-7.png", "/media/PJ7/still-8.png", "/media/PJ7/still-9.png"],
-        awards: []
+        images: ["/media/PJ7/still-1.png", "/media/PJ7/still-2.png", "/media/PJ7/still-3.png", "/media/PJ7/still-4.png", "/media/PJ7/still-5.png", "/media/PJ7/still-6.png", "/media/PJ7/still-7.png", "/media/PJ7/still-8.png", "/media/PJ7/still-9.png"],
+        awards: [],
+        isRTP: true,
     },
     {
         id: "rtp-tenscadisto",
+        thumbnail_title: "Tens Cá Disto?",
         title: "Tens cá disto? 2012",
         description: "\"Tens cá disto?\" é uma série sobre Tascas do nosso Portugal, onde mostramos um pouco do que se come por cada região, contado pelos clientes da tasca. O que sugerem, o que os leva aquela casa é o que apresentamos neste programa de sabores, tradições e pessoas.",
         credits: "REALIZAÇÃO E EDIÇÃO// DIRECTOR AND EDITING: Paulo André Ferreira ||",
         rtpImg: "/media/tens-ca-disto.png",
         externalUrl: "https://www.rtp.pt/play/p2469/tens-ca-disto",
         tag: "Series",
-        images:["/media/TENS_CA_DISTO/still-1.png", "/media/TENS_CA_DISTO/still-2.png", "/media/TENS_CA_DISTO/still-3.png", "/media/TENS_CA_DISTO/still-4.png", "/media/TENS_CA_DISTO/still-5.png", "/media/TENS_CA_DISTO/still-6.png"],
-        awards: []
+        images: ["/media/TENS_CA_DISTO/still-1.png", "/media/TENS_CA_DISTO/still-2.png", "/media/TENS_CA_DISTO/still-3.png", "/media/TENS_CA_DISTO/still-4.png", "/media/TENS_CA_DISTO/still-5.png", "/media/TENS_CA_DISTO/still-6.png"],
+        awards: [],
+        isRTP: true,
     },
 
     // Music Videos / Vimeo
     {
         id: "nena-oscroquetesacabam",
+        thumbnail_title: "Nena - Os Croquetes Acabam",
         title: "Nena - os croquetes acabam",
         description: "",
-        credits: 
+        credits:
             "Realizador: Paulo André Ferreira ||" +
             "Diretor de Fotografia: João Gomes ||" +
             "Diretora de Arte: Guigas Simões ||" +
@@ -145,20 +153,19 @@ export const projects = [
             "Assistente de Stylist: Maria Inês Santos ||" +
             "Make-up e Cabelos: Cátia Bolota ||" +
             "Produzido por: Mar Geada e Mónica TP ||" +
-            "Produção Executiva: Estúdio Zeco ||" +
-            "<br>" +
-            "Com o apoio de Casa Santos Lima e Chef - Comida Pronta||",
+            "Produção Executiva: Estúdio Zeco ||",
         videoId: "842794804",
         externalUrl: "https://www.youtube.com/watch?v=fGIMxEceRLU",
         tag: "Videoclips",
-        images:["/media/NENA/nena-1.jpg", "/media/NENA/nena-2.jpg","/media/NENA/nena-3.jpg","/media/NENA/nena-4.jpg","/media/NENA/nena-5.jpg","/media/NENA/nena-6.jpg","/media/NENA/nena-7.jpg","/media/NENA/nena-8.jpg"],
+        images: ["/media/NENA/nena-1.jpg", "/media/NENA/nena-2.jpg", "/media/NENA/nena-3.jpg", "/media/NENA/nena-4.jpg", "/media/NENA/nena-5.jpg", "/media/NENA/nena-6.jpg", "/media/NENA/nena-7.jpg", "/media/NENA/nena-8.jpg"],
         awards: []
     },
     {
         id: "cucaroseta-amorporfavor",
+        thumbnail_title: "AMOR POR FAVOR - CUCA ROSETA",
         title: "AMOR POR FAVOR - CUCA ROSETA",
         description: "",
-        credits: 
+        credits:
             "Atores: João Jesus - Soraia Sousa ||" +
             "Realizado por: Paulo André Ferreira ||" +
             "Assistente de realização: Mónica TP ||" +
@@ -178,14 +185,15 @@ export const projects = [
         videoId: "842792186",
         externalUrl: "https://www.youtube.com/watch?v=iA8mKWeh3_I",
         tag: "Videoclips",
-        images:["/media/CUCA_ROSETA/cuca-1.png", "/media/CUCA_ROSETA/cuca-2.png", "/media/CUCA_ROSETA/cuca-3.png", "/media/CUCA_ROSETA/cuca-4.png"],
+        images: ["/media/CUCA_ROSETA/cuca-1.png", "/media/CUCA_ROSETA/cuca-2.png", "/media/CUCA_ROSETA/cuca-3.png", "/media/CUCA_ROSETA/cuca-4.png"],
         awards: []
     },
     {
         id: "napa-seeumorresseamanha",
+        thumbnail_title: "NAPA - Se Eu Morresse Amanhã",
         title: "NAPA - Se Eu Morresse Amanhã",
         description: "",
-        credits: 
+        credits:
             "Realizador: Paulo André Ferreira  ||" +
             "DoP/Grading: Filipe Pinto Silva  ||" +
             "Operador Gimbal: Emanuel Garcia  ||" +
@@ -193,20 +201,19 @@ export const projects = [
             "Produtor: Rafael Coelho ||" +
             "Edição: Paulo Pinto ||" +
             "Captação e pós-produção áudio: Martim Crawford ||" +
-            "Foto de cena: Dário Gomes ||" +
-            "<br>" +
-            "Filmado com Kinefinity Kinermi 4K ||",
+            "Foto de cena: Dário Gomes ||",
         videoId: "367282104",
         externalUrl: "https://www.youtube.com/watch?v=hCI8ki34p1E",
         tag: "Videoclips",
-        images:["/media/NAPA/napa-1.png","/media/NAPA/napa-2.png","/media/NAPA/napa-3.png"],
+        images: ["/media/NAPA/napa-1.png", "/media/NAPA/napa-2.png", "/media/NAPA/napa-3.png"],
         awards: []
     },
     {
         id: "monicateotonio-todososdias",
+        thumbnail_title: "Mónica Teotónio - Todos os dias",
         title: "Mónica Teotónio - Todos os dias",
         description: "",
-        credits: 
+        credits:
             "Realização: Paulo André Ferreira ||" +
             "Direcção de fotografia: Miguel Manso ||" +
             "Direcção de arte: Sílvia Peralta ||" +
@@ -228,11 +235,12 @@ export const projects = [
         videoId: "813500585",
         externalUrl: "https://www.youtube.com/watch?v=1OBrY9Nzhak",
         tag: "Videoclips",
-        images:["/media/Monica/monica-1.png", "/media/Monica/monica-2.png", "/media/Monica/monica-3.png", "/media/Monica/monica-4.png", "/media/Monica/monica-5.png", "/media/Monica/monica-6.png"],
+        images: ["/media/Monica/monica-1.png", "/media/Monica/monica-2.png", "/media/Monica/monica-4.png", "/media/Monica/monica-5.png", "/media/Monica/monica-6.png"],
         awards: []
     },
     {
         id: "barbante-patamar",
+        thumbnail_title: "Barbante - Patamar",
         title: "Barbante - Patamar",
         description: "",
         credits:
@@ -242,20 +250,19 @@ export const projects = [
             "Ass. de Realização: Ana Cunha ||" +
             "Edição/Motion: Margarida Garcia ||" +
             "Ass. de Produção: Sara Morais ||" +
-            "Fotografia de cena: Dário Gomes ||" +
-            "<br>" +
-            "Filmado com Kinefinity Kinemini 4K ||",
+            "Fotografia de cena: Dário Gomes ||",
         videoId: "307477937",
         externalUrl: "https://www.youtube.com/watch?v=w4yg_Gwkk_k",
         tag: "Videoclips",
-        images:["/media/PATAMAR/patamar-1.png", "/media/PATAMAR/patamar-2.png", "/media/PATAMAR/patamar-3.png"],
+        images: ["/media/PATAMAR/patamar-1.png", "/media/PATAMAR/patamar-2.png", "/media/PATAMAR/patamar-3.png"],
         awards: []
     },
     {
         id: "barbante-adeus",
+        thumbnail_title: "Barbante - Adeus",
         title: "Barbante - Adeus",
         description: "",
-        credits: 
+        credits:
             "Produção: EFE Media Productions / Barbante ||" +
             "Realização: Paulo André Ferreira ||" +
             "Director de Fotografia / Grading: Filipe Pinto Silva ||" +
@@ -264,17 +271,16 @@ export const projects = [
             "Focus Puller: Ricardo Capucha ||" +
             "Edição: Filipe Pinto Silva / Paulo André Ferreira ||" +
             "Pós-Produção Áudio: Martim Crawford ||" +
-            "Fotografia de cena: Dário Gomes ||" +
-            "<br>" +
-            "Filmado com Kinefinity Kinemini 4K",
+            "Fotografia de cena: Dário Gomes ||",
         videoId: "261619368",
         externalUrl: "https://youtu.be/LnlFKqA3Guc?si=68uiQHZGYD8dXV1K",
         tag: "Videoclips",
-        images:["/media/ADEUS_BARBANTE/adeus-1.png","/media/ADEUS_BARBANTE/adeus-2.png","/media/ADEUS_BARBANTE/adeus-3.png","/media/ADEUS_BARBANTE/adeus-4.png","/media/ADEUS_BARBANTE/adeus-5.png","/media/ADEUS_BARBANTE/adeus-6.png"],
+        images: ["/media/ADEUS_BARBANTE/adeus-1.png", "/media/ADEUS_BARBANTE/adeus-2.png", "/media/ADEUS_BARBANTE/adeus-3.png", "/media/ADEUS_BARBANTE/adeus-5.png", "/media/ADEUS_BARBANTE/adeus-6.png"],
         awards: []
     },
     {
         id: "barbante-cao",
+        thumbnail_title: "Barbante - Cão",
         title: "Barbante - Cão",
         description: "",
         credits: "Realização: Paulo André Ferreira ||" +
@@ -292,11 +298,12 @@ export const projects = [
         videoId: "187679760",
         externalUrl: "https://youtu.be/jTIu1hfHD34?si=deQprYkSsRIoCH54",
         tag: "Videoclips",
-        images:["/media/CAO_BARBANTE/cao-1.png", "/media/CAO_BARBANTE/cao-2.png", "/media/CAO_BARBANTE/cao-3.png", "/media/CAO_BARBANTE/cao-4.png"],
+        images: ["/media/CAO_BARBANTE/cao-1.png", "/media/CAO_BARBANTE/cao-2.png", "/media/CAO_BARBANTE/cao-3.png", "/media/CAO_BARBANTE/cao-4.png"],
         awards: []
     },
     {
         id: "cocopilots-novodia",
+        thumbnail_title: "CocoPilots - Novo Dia",
         title: "CocoPilots - Novo Dia",
         description: "",
         credits:
@@ -306,14 +313,15 @@ export const projects = [
         videoId: "413077420",
         externalUrl: "https://www.youtube.com/watch?v=7cWSzTfFze0",
         tag: "Videoclips",
-        images:["/media/COCO_PILOTS/pilots-1.png", "/media/COCO_PILOTS/pilots-2.png", "/media/COCO_PILOTS/pilots-3.png", "/media/COCO_PILOTS/pilots-4.png"],
+        images: ["/media/COCO_PILOTS/pilots-1.png", "/media/COCO_PILOTS/pilots-2.png", "/media/COCO_PILOTS/pilots-3.png", "/media/COCO_PILOTS/pilots-4.png"],
         awards: []
     },
     {
         id: "serra-dos-amores",
+        thumbnail_title: "Martim Baginha - Serra dos Amores",
         title: "Martim Baginha - Serra dos Amores",
         description: "",
-        credits: 
+        credits:
             "Realização: Paulo André Ferreira ||" +
             "Direcção de Fotografia: Frederico Borges ||" +
             "Anotação: Joana Marcelino ||" +
@@ -324,7 +332,7 @@ export const projects = [
         videoId: "1132464661",
         externalUrl: "https://vimeo.com/1132464661",
         tag: "Videoclips",
-        images:["/media/Martim/martim-1.png", "/media/Martim/martim-2.png", "/media/Martim/martim-3.png","/media/Martim/martim-4.png", "/media/Martim/martim-5.png","/media/Martim/martim-6.png","/media/Martim/martim-7.png","/media/Martim/martim-8.png"],
+        images: ["/media/Martim/martim-1.png", "/media/Martim/martim-2.png", "/media/Martim/martim-3.png", "/media/Martim/martim-4.png", "/media/Martim/martim-5.png", "/media/Martim/martim-6.png", "/media/Martim/martim-7.png", "/media/Martim/martim-8.png"],
         awards: []
     }
 ];

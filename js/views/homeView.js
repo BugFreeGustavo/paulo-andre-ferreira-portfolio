@@ -56,7 +56,7 @@ export default class HomeView {
 
                 <div class="overlay"></div>
 
-                <div class="project-title-thumbnail" style="color: #ffffff;">${p.title}</div>
+                <div class="project-title-thumbnail" style="color: #ffffff;">${p.thumbnail_title}</div>
 
                 <img class="project-thumbnail" alt="${p.title}">
             </div>

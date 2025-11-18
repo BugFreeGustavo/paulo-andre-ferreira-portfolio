@@ -235,6 +235,22 @@
     margin-left: 5px;
 }
 
+.logo-link {
+    display: inline-block;
+}
+
+.external-logo {
+    height: 55px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+    border-radius: 10px;
+}
+
+.external-logo:hover {
+    transform: scale(1.05);
+}
+
+
 
 
 @keyframes fadeIn {

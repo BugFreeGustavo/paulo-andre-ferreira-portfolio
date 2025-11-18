@@ -74,7 +74,8 @@ export default class ProjectView {
                         ${this.formatCredits(p.credits)}
                     </div>
 
-                    ${p.externalUrl ? `<a href="${p.externalUrl}" target="_blank" class="external-link">View More</a>` : ""}
+                    ${this.buildExternalLink(p)}
+
                 </div>
 
                 ${galleryHTML}
@@ -156,9 +157,6 @@ export default class ProjectView {
             .join("<br>");
     }
 
-
-
-
     initLightbox() {
         const galleryImgs = this.root.querySelectorAll(".gallery-img");
         const lightbox = this.root.querySelector(".lightbox");
@@ -210,4 +208,34 @@ export default class ProjectView {
             if (e.key === "ArrowLeft") showPrev();
         });
     }
+
+    buildExternalLink(p) {
+    if (!p.externalUrl) return "";
+
+    // --- RTP PLAY PROJECT ---
+    if (p.isRTP) {
+        return `
+            <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
+                <img src="/media/logos/rtp-play.png" alt="RTP Play" class="external-logo">
+            </a>
+        `;
+    }
+
+    // --- CINEMA PROJECT -> FILMIN LOGO ---
+    if (p.tag && p.tag.includes("Cinema")) {
+        return `
+            <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
+                <img src="/media/logos/filmin.png" alt="Filmin" class="external-logo">
+            </a>
+        `;
+    }
+
+    // --- DEFAULT ---
+    return `
+        <a href="${p.externalUrl}" target="_blank" class="external-link">
+            View More
+        </a>
+    `;
+}
+
 }
