@@ -156,3 +156,24 @@ body {
 .filter-btn:hover {
   opacity: 0.7;
 }
+
+/* --- MOBILE ADAPTATION --- */
+@media (max-width: 600px) {
+  .project-title-thumbnail {
+    font-size: 0.7rem;   /* smaller text */
+    max-width: 80%;      /* tighter, avoids wrapping */
+    padding: 3px 6px;    /* fit better */
+    text-shadow: 0 0 4px rgba(0,0,0,0.8); /* stronger contrast on small screens */
+  }
+
+  .project-item {
+    width: 100%;         /* thumbnails fit mobile grid better */
+    aspect-ratio: 16/9;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* one thumbnail per row */
+    gap: 14px;
+    padding: 0 12px;
+  }
+}

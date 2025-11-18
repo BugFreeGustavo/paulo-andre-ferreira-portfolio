@@ -31,10 +31,12 @@ export const projects = [
             "MAKE UP // MAKEUP ARTIST: Magali Santana ||" +
             "",
         videoId: "655923441",
-        externalUrl: "https://www.imdb.com/title/tt16377446/",
+        externalUrlIMDB: "https://www.imdb.com/title/tt16377446/",
         tag: "Cinema",
         images: ["/media/AS_FERAS/AS_FERAS_STILL_1.png", "/media/AS_FERAS/AS_FERAS_STILL_2.png", "/media/AS_FERAS/AS_FERAS_STILL_3.png", "/media/AS_FERAS/AS_FERAS_STILL_4.png", "/media/AS_FERAS/AS_FERAS_STILL_5.png", "/media/AS_FERAS/as-feras-poster.jpg"],
-        awards: ["/media/AS_FERAS/LAUREL/entre-olhares.png", "/media/AS_FERAS/LAUREL/actriz-secundaria.png", "/media/AS_FERAS/LAUREL/new-directors-new-film.png", "/media/AS_FERAS/LAUREL/porto-femme.png", "/media/AS_FERAS/LAUREL/premios-curtas.png"]
+        awards: ["/media/AS_FERAS/LAUREL/entre-olhares.png", "/media/AS_FERAS/LAUREL/actriz-secundaria.png", "/media/AS_FERAS/LAUREL/new-directors-new-film.png", "/media/AS_FERAS/LAUREL/porto-femme.png", "/media/AS_FERAS/LAUREL/premios-curtas.png"],
+        isIMDB: true,
+        isFILMIN: true,
     },
     {
         id: "sempre-generico",
@@ -52,7 +54,7 @@ export const projects = [
         externalUrl: "https://vimeo.com/1130499088",
         tag: "Series",
         images: ["/media/SEMPRE/still1.png", "/media/SEMPRE/still2.png", "/media/SEMPRE/still3.png", "/media/SEMPRE/still4.png", "/media/SEMPRE/still5.png", "/media/SEMPRE/still6.png", "/media/SEMPRE/still7.png", "/media/SEMPRE/still8.png", "/media/SEMPRE/still9.png"],
-        awards: []
+        awards: [],
     },
     {
         id: "agenerala",
@@ -70,7 +72,7 @@ export const projects = [
         externalUrl: "https://vimeo.com/653217840",
         tag: "Series",
         images: ["/media/GENERALA/still-1.png", "/media/GENERALA/still-2.png", "/media/GENERALA/still-3.png", "/media/GENERALA/still-4.png"],
-        awards: []
+        awards: [],
     },
 
     // RTP Play

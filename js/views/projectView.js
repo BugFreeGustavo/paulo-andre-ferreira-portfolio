@@ -13,6 +13,19 @@ export default class ProjectView {
         }
 
         this.render();
+
+        window.addEventListener("filmin-message", (e) => {
+            const msg = e.detail;
+
+            const box = document.querySelector("#side-message");
+            if (!box) return;
+
+            box.textContent = msg;
+            box.classList.add("show");
+
+            setTimeout(() => box.classList.remove("show"), 4000);
+        });
+
     }
 
     render() {
@@ -210,32 +223,53 @@ export default class ProjectView {
     }
 
     buildExternalLink(p) {
-    if (!p.externalUrl) return "";
+    const links = [];
 
-    // --- RTP PLAY PROJECT ---
-    if (p.isRTP) {
-        return `
+    // --- RTP PLAY ---
+    if (p.isRTP && p.externalUrl) {
+        links.push(`
             <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
                 <img src="/media/logos/rtp-play.png" alt="RTP Play" class="external-logo">
             </a>
-        `;
+        `);
     }
 
-    // --- CINEMA PROJECT -> FILMIN LOGO ---
-    if (p.tag && p.tag.includes("Cinema")) {
-        return `
-            <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
+    // --- IMDb ---
+    if (p.isIMDB && p.externalUrlIMDB) {
+        links.push(`
+            <a href="${p.externalUrlIMDB}" target="_blank" class="external-link logo-link">
+                <img src="/media/logos/imdb.png" alt="IMDb" class="external-logo">
+            </a>
+        `);
+    }
+
+    // --- FILMIN ---
+    if (p.isFILMIN) {
+        links.push(`
+            <a 
+                class="external-link logo-link filmin-link"
+                onclick="window.dispatchEvent(new CustomEvent('filmin-message', {
+                    detail: 'Disponível a partir de 18 de Dezembro'
+                }))"
+                style="cursor: pointer;"
+            >
                 <img src="/media/logos/filmin.png" alt="Filmin" class="external-logo">
             </a>
-        `;
+            <div id="side-message"></div>
+        `);
     }
 
-    // --- DEFAULT ---
-    return `
-        <a href="${p.externalUrl}" target="_blank" class="external-link">
-            View More
-        </a>
-    `;
+    // --- BASIC "VIEW MORE" ---
+    if (p.externalUrl && !p.isRTP && !p.isFILMIN && !p.isIMDB) {
+        links.push(`
+            <a href="${p.externalUrl}" target="_blank" class="external-link">
+                View More
+            </a>
+        `);
+    }
+
+    // Return all combined
+    return links.join("");
 }
 
 }
