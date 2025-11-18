@@ -238,7 +238,7 @@ export default class ProjectView {
         // --- IMDb ---
         if (p.isIMDB) {
             links.push(`
-            <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
+            <a href="${p.externalUrlIMDB}" target="_blank" class="external-link logo-link">
                 <img src="/media/logos/imdb.png" alt="IMDb" class="external-logo">
             </a>
         `);
