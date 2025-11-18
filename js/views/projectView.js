@@ -15,16 +15,14 @@ export default class ProjectView {
         this.render();
 
         window.addEventListener("filmin-message", (e) => {
-            const msg = e.detail;
-
-            const box = document.querySelector("#side-message");
+            const box = this.root.querySelector("#side-message");
             if (!box) return;
 
-            box.textContent = msg;
+            box.textContent = e.detail;
             box.classList.add("show");
 
-            setTimeout(() => box.classList.remove("show"), 4000);
         });
+
 
     }
 
@@ -223,53 +221,48 @@ export default class ProjectView {
     }
 
     buildExternalLink(p) {
-    const links = [];
+        // If no external flags: return ""
+        if (!p.externalUrl && !p.isFILMIN && !p.isIMDB && !p.isRTP) return "";
 
-    // --- RTP PLAY ---
-    if (p.isRTP && p.externalUrl) {
-        links.push(`
+        const links = [];
+
+        // --- RTP PLAY ---
+        if (p.isRTP) {
+            links.push(`
             <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
                 <img src="/media/logos/rtp-play.png" alt="RTP Play" class="external-logo">
             </a>
         `);
-    }
+        }
 
-    // --- IMDb ---
-    if (p.isIMDB && p.externalUrlIMDB) {
-        links.push(`
-            <a href="${p.externalUrlIMDB}" target="_blank" class="external-link logo-link">
+        // --- IMDb ---
+        if (p.isIMDB) {
+            links.push(`
+            <a href="${p.externalUrl}" target="_blank" class="external-link logo-link">
                 <img src="/media/logos/imdb.png" alt="IMDb" class="external-logo">
             </a>
         `);
-    }
+        }
 
-    // --- FILMIN ---
-    if (p.isFILMIN) {
-        links.push(`
+        // --- FILMIN ---
+        if (p.isFILMIN) {
+            links.push(`
             <a 
                 class="external-link logo-link filmin-link"
                 onclick="window.dispatchEvent(new CustomEvent('filmin-message', {
                     detail: 'Disponível a partir de 18 de Dezembro'
                 }))"
-                style="cursor: pointer;"
             >
                 <img src="/media/logos/filmin.png" alt="Filmin" class="external-logo">
             </a>
-            <div id="side-message"></div>
         `);
+        }
+
+        // MESSAGE BOX (only once)
+        links.push(`<div id="side-message"></div>`);
+
+        return links.join("");  // return all accumulated logos + message box
     }
 
-    // --- BASIC "VIEW MORE" ---
-    if (p.externalUrl && !p.isRTP && !p.isFILMIN && !p.isIMDB) {
-        links.push(`
-            <a href="${p.externalUrl}" target="_blank" class="external-link">
-                View More
-            </a>
-        `);
-    }
-
-    // Return all combined
-    return links.join("");
-}
 
 }
