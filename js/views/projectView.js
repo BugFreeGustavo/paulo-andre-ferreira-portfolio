@@ -247,14 +247,11 @@ export default class ProjectView {
         // --- FILMIN ---
         if (p.isFILMIN) {
             links.push(`
-            <a 
-                class="external-link logo-link filmin-link"
-                onclick="window.dispatchEvent(new CustomEvent('filmin-message', {
-                    detail: 'Disponível a partir de 18 de Dezembro'
-                }))"
-            >
+        
+            <a href="${p.externalUrlFilmIN}" target="_blank" class="external-link logo-link">
                 <img src="/media/logos/filmin.png" alt="Filmin" class="external-logo">
             </a>
+            
         `);
         }
 

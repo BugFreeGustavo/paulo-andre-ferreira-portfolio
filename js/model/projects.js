@@ -32,6 +32,7 @@ export const projects = [
             "",
         videoId: "655923441",
         externalUrlIMDB: "https://www.imdb.com/title/tt16377446/",
+        externalUrlFilmIN: "https://www.filmin.pt/curta/as-feras",
         tag: "Cinema",
         images: ["/media/AS_FERAS/AS_FERAS_STILL_1.png", "/media/AS_FERAS/AS_FERAS_STILL_2.png", "/media/AS_FERAS/AS_FERAS_STILL_3.png", "/media/AS_FERAS/AS_FERAS_STILL_4.png", "/media/AS_FERAS/AS_FERAS_STILL_5.png", "/media/AS_FERAS/as-feras-poster.jpg"],
         awards: ["/media/AS_FERAS/LAUREL/entre-olhares.png", "/media/AS_FERAS/LAUREL/actriz-secundaria.png", "/media/AS_FERAS/LAUREL/new-directors-new-film.png", "/media/AS_FERAS/LAUREL/porto-femme.png", "/media/AS_FERAS/LAUREL/premios-curtas.png"],
