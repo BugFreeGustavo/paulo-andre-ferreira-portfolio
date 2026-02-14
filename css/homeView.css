@@ -113,7 +113,7 @@ body {
   max-width: 90%;
 
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.7),
-               0 0 12px rgba(0, 0, 0, 0.5);
+    0 0 12px rgba(0, 0, 0, 0.5);
 
   background: rgba(0, 0, 0, 0.25);
   padding: 4px 8px;
@@ -157,22 +157,113 @@ body {
   opacity: 0.7;
 }
 
+/* PRESS PAGE */
+.press-page {
+  padding: 80px 10%;
+  background: linear-gradient(to bottom, white, #e8f3ff);
+  color: #e8f3ff;
+  min-height: 100vh;
+}
+
+.press-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  color: black;
+}
+
+.press-grid {
+  display: grid;
+  gap: 50px;
+}
+
+.press-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: rgba(20, 40, 70, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.press-card:hover {
+  transform: translateY(-5px);
+}
+
+.press-cover img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(179, 215, 255, 0.2);
+}
+
+.press-logo {
+  width: 120px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.press-project {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.press-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 20px 0;
+  color: rgb(255, 255, 255);
+}
+
+.press-links a {
+  display: inline-block;
+  margin-right: 20px;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid #ffffffcd;
+  padding-bottom: 3px;
+  transition: opacity 0.3s ease;
+}
+
+.press-links a:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .press-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* --- MOBILE ADAPTATION --- */
 @media (max-width: 600px) {
   .project-title-thumbnail {
-    font-size: 0.7rem;   /* smaller text */
-    max-width: 80%;      /* tighter, avoids wrapping */
-    padding: 3px 6px;    /* fit better */
-    text-shadow: 0 0 4px rgba(0,0,0,0.8); /* stronger contrast on small screens */
+    font-size: 0.7rem;
+    /* smaller text */
+    max-width: 80%;
+    /* tighter, avoids wrapping */
+    padding: 3px 6px;
+    /* fit better */
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+    /* stronger contrast on small screens */
   }
 
   .project-item {
-    width: 100%;         /* thumbnails fit mobile grid better */
+    width: 100%;
+    /* thumbnails fit mobile grid better */
     aspect-ratio: 16/9;
   }
 
   .projects-grid {
-    grid-template-columns: 1fr; /* one thumbnail per row */
+    grid-template-columns: 1fr;
+    /* one thumbnail per row */
     gap: 14px;
     padding: 0 12px;
   }

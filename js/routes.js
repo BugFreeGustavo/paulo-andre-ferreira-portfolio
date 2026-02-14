@@ -27,6 +27,10 @@ export default {
         path: '/project',
         controller: 'projectController'
     },
+    press: {
+        path: '/press',
+        controller: 'pressController'
+    },
     currentPath: {
         path: '',
         controller: ''
